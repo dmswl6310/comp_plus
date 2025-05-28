@@ -7,10 +7,15 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
+      // publicDir에 없는 asset (전부다 포함시킬것)
       // workbox: {
       //   globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
       // },
-      includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
+      //오프라인에서도 나오게 precache
+      includeAssets: [
+        "react.svg",
+        "vite.svg",
+      ],
       manifest: {
         name: "my PWA App",
         short_name: "vitePWA",
