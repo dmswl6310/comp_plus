@@ -1,15 +1,17 @@
 
+import { Outlet } from "react-router-dom";
+import Header from "./components/common/Header";
+import Footer from "./components/common/Footer";
 
 const App=()=> {
 
   return (
     <>
-<button className="bg-blue-500 text-white p-4 rounded-lg shadow-md">
-  Hello Tailwind!
-</button>     
-{/* <Header/>
-     <Main/>
-     <Footer/> */}
+    <Header/>
+     <main>
+      <Outlet/>
+     </main>
+     <Footer/>
     </>
   )
 }
