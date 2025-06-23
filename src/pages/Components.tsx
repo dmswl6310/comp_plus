@@ -1,5 +1,16 @@
+import PageTitle from "@/components/common/PageTitle"
+import ComponentList from "@/components/ComponentList"
+import { componentData } from "@/data/componentDatas"
+
+
+
 const Components=()=>{
-    return <div className="bg-red-500 text-white p-4">Tailwind 적용됨</div>
+    return(
+    <div>
+        <PageTitle title="Components"/>
+        <ComponentList items={componentData}/>
+    </div>
+    )
 }
 
 export default Components
