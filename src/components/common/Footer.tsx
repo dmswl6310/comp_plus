@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div className="flex items-center justify-center">
         {" "}
         This is made by Eunji Hwang
       </div>

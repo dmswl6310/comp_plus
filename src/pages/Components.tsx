@@ -1,16 +1,14 @@
-import PageTitle from "@/components/common/PageTitle"
-import ComponentList from "@/components/ComponentList"
-import { componentData } from "@/data/componentDatas"
+import PageTitle from "@/components/common/PageTitle";
+import ComponentList from "@/components/ComponentList";
+import { componentData } from "@/data/componentDatas";
 
-
-
-const Components=()=>{
-    return(
+const Components = () => {
+  return (
     <div>
-        <PageTitle title="Components"/>
-        <ComponentList items={componentData}/>
+      <PageTitle title="Components" />
+      <ComponentList items={componentData} />
     </div>
-    )
-}
+  );
+};
 
-export default Components
+export default Components;

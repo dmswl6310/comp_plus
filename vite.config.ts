@@ -2,18 +2,18 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 import tailwindcss from "@tailwindcss/vite";
-import path from 'path';
+import path from "path";
 
 export default defineConfig({
-  resolve:{
-    alias:{
-      '@' : path.resolve(__dirname,'src'),
-      '@assets': path.resolve(__dirname, 'src/assets'),
-      '@components': path.resolve(__dirname, 'src/components'),
-      '@pages': path.resolve(__dirname, 'src/pages'),
-      '@data': path.resolve(__dirname, 'src/data'),
-      '@types': path.resolve(__dirname, 'src/types'),
-    }
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+      "@assets": path.resolve(__dirname, "src/assets"),
+      "@components": path.resolve(__dirname, "src/components"),
+      "@pages": path.resolve(__dirname, "src/pages"),
+      "@data": path.resolve(__dirname, "src/data"),
+      "@types": path.resolve(__dirname, "src/types"),
+    },
   },
   plugins: [
     react(),
@@ -25,10 +25,7 @@ export default defineConfig({
       //   globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
       // },
       //오프라인에서도 나오게 precache
-      includeAssets: [
-        "react.svg",
-        "vite.svg",
-      ],
+      includeAssets: ["react.svg", "vite.svg"],
       manifest: {
         name: "my PWA App",
         short_name: "vitePWA",

@@ -1,9 +1,7 @@
-const PageTitle = ({title}:{title:string}) => {
+const PageTitle = ({ title }: { title: string }) => {
   return (
-    <div className="flex justify-center items-center">
-      <h1 >
-        {title}
-      </h1>
+    <div className="flex items-center justify-center">
+      <h1>{title}</h1>
     </div>
   );
 };
