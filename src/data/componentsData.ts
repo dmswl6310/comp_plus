@@ -1,7 +1,7 @@
 import { ComponentInfo } from "@/types/component.types";
 import listThumbnail from "@assets/list-thumbnail.png";
 
-export const componentData: ComponentInfo[] = [
+export const componentsData: ComponentInfo[] = [
   {
     id: "list1",
     name: "List",
