@@ -1,8 +1,11 @@
-import { defineConfig } from "vite";
+import { defineConfig, Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcssPlugin from "@tailwindcss/vite";
 import path from "path";
+// import rawPlugin from "vite-plugin-raw";
+
+const tailwindcss = tailwindcssPlugin as () => Plugin[];
 
 export default defineConfig({
   resolve: {
@@ -18,6 +21,9 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    // rawPlugin({
+    //   fileRegex: /\.(txt|tsx|md)$/,
+    // }),
     VitePWA({
       registerType: "autoUpdate",
       // publicDir에 없는 asset (전부다 포함시킬것)
