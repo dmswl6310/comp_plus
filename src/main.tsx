@@ -5,6 +5,7 @@ import App from "./App";
 import Components from "./pages/Components";
 import "./styles.css";
 import Home from "./pages/Home";
+import ComponentDetail from "./components/ComponentDetail";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <Home /> },
       { path: "components", element: <Components /> },
-      // { path: 'components/:id', element: <ComponentDetail /> },
+      { path: "components/:id", element: <ComponentDetail /> },
     ],
   },
 ]);
