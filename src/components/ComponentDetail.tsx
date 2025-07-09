@@ -2,7 +2,7 @@ import PageTitle from "@/components/common/PageTitle";
 import { componentsData } from "@/data/componentsData";
 import { Navigate, useParams } from "react-router-dom";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const ComponentDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -32,19 +32,21 @@ const ComponentDetail = () => {
             {componentDetail.updatedAt.toDateString()}
           </p>
         </div>
-        <SyntaxHighlighter
-          language="tsx"
-          // style={oneDark}
-          wrapLines
-          wrapLongLines
-          customStyle={{
-            borderRadius: "8px",
-            padding: "1rem",
-            fontSize: "0.875rem",
-          }}
-        >
-          {componentDetail.code}
-        </SyntaxHighlighter>
+        <div>
+          <SyntaxHighlighter
+            language="tsx"
+            style={oneLight}
+            wrapLines
+            wrapLongLines
+            customStyle={{
+              borderRadius: "8px",
+              padding: "1rem",
+              fontSize: "0.875rem",
+            }}
+          >
+            {componentDetail.code}
+          </SyntaxHighlighter>
+        </div>
       </div>
     </div>
   );
