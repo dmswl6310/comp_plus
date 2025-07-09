@@ -1,5 +1,5 @@
 import { listMeta } from "./meta";
-import { listCode } from "./code";
+import listCode from "./examples?raw";
 import { listExamples } from "./examples";
 
 export const listComponent = {

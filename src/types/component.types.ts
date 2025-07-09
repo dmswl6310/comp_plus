@@ -7,11 +7,11 @@ export interface ComponentInfo {
   updatedAt: Date; // 마지막 수정날짜
   description: string; // 컴포넌트 설명
   code: string; // 사용 예시 코드
-  componentCode: string; // 확장 가능한 원본 코드
-  examples: ComponentExample[]; // 예제 코드들
-
-  // 아직 미정
-  //  preview: React.ReactNode;
+  // componentCode: string; // 확장 가능한 원본 코드
+  examples: {
+    title: string;
+    code: string;
+  }[];
 }
 
 export type ComponentTag = "form" | "basic" | "etc";
