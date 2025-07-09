@@ -1,11 +1,11 @@
-import { defineConfig, Plugin } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
-import tailwindcssPlugin from "@tailwindcss/vite";
 import path from "path";
+import tailwindcss from "@tailwindcss/vite";
 // import rawPlugin from "vite-plugin-raw";
 
-const tailwindcss = tailwindcssPlugin as () => Plugin[];
+// const tailwindcss = tailwindcxssPlugin as () => Plugin[];
 
 export default defineConfig({
   resolve: {

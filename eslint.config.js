@@ -17,8 +17,9 @@ export default tseslint.config(
       globals: globals.browser,
       parserOptions: {
         // for production Mode
-        project: ["./tsconfig.json"],
+        project: ["./tsconfig.json", "./tsconfig.vite.json"],
         tsconfigRootDir: import.meta.dirname,
+        moduleResolution: "bundler",
       },
     },
     plugins: {
