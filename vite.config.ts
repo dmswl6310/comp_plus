@@ -3,9 +3,7 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
-// import rawPlugin from "vite-plugin-raw";
-
-// const tailwindcss = tailwindcxssPlugin as () => Plugin[];
+import rawPlugin from "vite-plugin-raw";
 
 export default defineConfig({
   resolve: {
@@ -21,9 +19,9 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    // rawPlugin({
-    //   fileRegex: /\.(txt|tsx|md)$/,
-    // }),
+    rawPlugin({
+      fileRegex: /\.(txt|tsx|md)$/,
+    }),
     VitePWA({
       registerType: "autoUpdate",
       // publicDir에 없는 asset (전부다 포함시킬것)

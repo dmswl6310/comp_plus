@@ -22,6 +22,7 @@
     "src",
     "vite.config.ts",
     "tsconfig.node.json",
-    "tsconfig.vite.json"
+    "tsconfig.vite.json",
+    "types"
   ]
 }
