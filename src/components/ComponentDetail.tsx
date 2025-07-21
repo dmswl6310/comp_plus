@@ -37,9 +37,9 @@ const ComponentDetail = () => {
           <CodeBlock code={componentDetail.code} />
         </div>
         {/* <Playground
-          example={'<CustomButton label="hello"/>'}
-          components={{ CustomButton }} */}
-        {/* /> */}
+          examples={'<CustomButton label="hello"/>'}
+          component={CustomButton}
+        /> */}
       </div>
     </div>
   );
