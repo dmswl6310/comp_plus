@@ -2,8 +2,8 @@ import PageTitle from "@/components/common/PageTitle";
 import { componentsData } from "@/data/componentsData";
 import { Navigate, useParams } from "react-router-dom";
 import CodeBlock from "./common/CodeBlock";
-import { CustomButton } from "@/data/components/button/CustomButton";
-import { Playground } from "./Playground";
+// import { CustomButton } from "@/data/components/button/CustomButton";
+// import { Playground } from "./Playground";
 
 const ComponentDetail = () => {
   const { id } = useParams<{ id: string }>();
