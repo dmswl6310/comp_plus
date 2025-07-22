@@ -1,16 +1,20 @@
-// // import { JSX } from "react";
+// import PreviewItem from "./PreviewItem";
 
-// type PlaygroundProps = {
-//   examples: string;
-//   component: React.ComponentType<P>;
+// type PlaygroundProps<P> = {
+//   customComponent: React.ComponentType<unknown>;
+//   propsItems: P[];
 // };
 
-// export const Playground = ({ examples, component }: PlaygroundProps) => {
-//   // const CustomComponent = component;
+// const Playground = <P,>({
+//   customComponent,
+//   propsItems,
+// }: PlaygroundProps<P>) => {
 //   return (
 //     <div>
-//       <div>{examples}</div>
-//       <div>{/* <CustomComponent /> */}</div>
+//       Examples
+//       {propsItems.map((props, index) => (
+//         <PreviewItem key={index} component={customComponent} props={props} />
+//       ))}
 //     </div>
 //   );
 // };
