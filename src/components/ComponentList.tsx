@@ -2,7 +2,7 @@ import { ComponentInfo } from "@/types/component.types";
 import ComponentCard from "./ComponentCard";
 import LazyCard from "./LazyCard";
 
-const ComponentList = ({ items }: { items: ComponentInfo[] }) => {
+const ComponentList = <T,>({ items }: { items: ComponentInfo<T>[] }) => {
   return (
     <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {items.map((item) => (
