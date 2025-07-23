@@ -1,15 +1,20 @@
-// type Props<P> = {
-//   component: React.ComponentType<unknown>;
-//   props: P;
-// };
+type PreviewItemProps<T extends object> = {
+  rcomponent: React.ComponentType<T>;
+  componentProps: T;
+};
 
-// const PreviewItem = <P,>({ component: Component, props }: Props<P>) => (
-//   <div className="preview">
-//     <div className="example-code">
-//       {`<${Component.name} ${Object.entries(props).map(...)} />`}
-//     </div>
-//     <div className="rendered-result"><Component {...props} /></div>
-//   </div>
-// );
+const PreviewItem = <T extends object>({
+  rcomponent: Component,
+  componentProps,
+}: PreviewItemProps<T>) => (
+  <div className="preview">
+    {/* <div className="example-code">
+      {`<${Component.name} ${Object.entries(componentProps).map(...)} />`}
+    </div> */}
+    <div className="rendered-result">
+      <Component {...componentProps} />
+    </div>
+  </div>
+);
 
-// export default PreviewItem;
+export default PreviewItem;

@@ -2,11 +2,11 @@ import PageTitle from "@/components/common/PageTitle";
 import { componentsData } from "@/data/componentsData";
 import { Navigate, useParams } from "react-router-dom";
 import CodeBlock from "./common/CodeBlock";
-// import {
-//   CustomButton,
-//   CustomButtonProps,
-// } from "@/data/components/button/CustomButton";
-// import Playground from "./Playground";
+import {
+  CustomButton,
+  CustomButtonProps,
+} from "@/data/components/button/CustomButton";
+import Playground from "./Playground";
 
 const ComponentDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,7 +14,7 @@ const ComponentDetail = () => {
 
   if (!componentDetail) return <Navigate to="/not-found" />;
 
-  // const ex: CustomButtonProps[] = [{ label: "hello" }, { label: "hi" }];
+  const ex: CustomButtonProps[] = [{ label: "hello" }, { label: "hi" }];
 
   return (
     <div>
@@ -41,7 +41,7 @@ const ComponentDetail = () => {
         <div>
           <CodeBlock code={componentDetail.code} />
         </div>
-        {/* <Playground component={CustomButton} propsItems={ex} /> */}
+        <Playground renderComponent={CustomButton} propsItems={ex} />
       </div>
     </div>
   );

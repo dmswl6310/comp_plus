@@ -1,22 +1,25 @@
-// import PreviewItem from "./PreviewItem";
+import PreviewItem from "./PreviewItem";
 
-// type PlaygroundProps<P> = {
-//   customComponent: React.ComponentType<unknown>;
-//   propsItems: P[];
-// };
+type PlaygroundProps<T extends object> = {
+  renderComponent: React.ComponentType<T>;
+  propsItems: T[];
+};
 
-// const Playground = <P,>({
-//   customComponent,
-//   propsItems,
-// }: PlaygroundProps<P>) => {
-//   return (
-//     <div>
-//       Examples
-//       {propsItems.map((props, index) => (
-//         <PreviewItem key={index} component={customComponent} props={props} />
-//       ))}
-//     </div>
-//   );
-// };
+const Playground = <T extends object>({
+  renderComponent,
+  propsItems,
+}: PlaygroundProps<T>) => {
+  return (
+    <div>
+      {propsItems.map((props, index) => (
+        <PreviewItem
+          key={index}
+          rcomponent={renderComponent}
+          componentProps={props}
+        />
+      ))}
+    </div>
+  );
+};
 
-// export default Playground;
+export default Playground;
