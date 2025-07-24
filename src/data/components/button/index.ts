@@ -1,13 +1,13 @@
 import { buttonMeta } from "./meta";
 import buttonCode from "./CustomButton.tsx?raw";
 import { buttonExamples } from "./examples";
-import { ComponentInfoWithComponent } from "@/types/component.types";
 import { CustomButton, CustomButtonProps } from "./CustomButton";
+import { ComponentInfo } from "@/types/component.types";
 
-export const buttonComponent: ComponentInfoWithComponent<CustomButtonProps> = {
+export const buttonComponent: ComponentInfo<CustomButtonProps> = {
   id: "button1",
   ...buttonMeta,
   code: buttonCode,
-  examples: buttonExamples,
   component: CustomButton,
+  examples: buttonExamples,
 };

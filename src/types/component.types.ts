@@ -8,13 +8,8 @@ export interface ComponentInfo<T> {
   description: string; // 컴포넌트 설명
   code: string; // 사용 예시 코드
 
-  // component: React.ComponentType<T>;
+  component: React.ComponentType<T>;
   examples: T[];
-}
-
-export interface ComponentInfoWithComponent<T extends object>
-  extends ComponentInfo<T> {
-  component: React.ComponentType<T>; // ← 이 필드가 없다고 지금 에러남
 }
 
 export type ComponentTag = "form" | "basic" | "etc";

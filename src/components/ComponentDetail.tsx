@@ -3,14 +3,13 @@ import { componentsData } from "@/data/componentsData";
 import { Navigate, useParams } from "react-router-dom";
 import CodeBlock from "./common/CodeBlock";
 import Playground from "./Playground";
+// import { ComponentInfo } from "@/types/component.types";
 
-const ComponentDetail = () => {
+const ComponentDetail = <T,>() => {
   const { id } = useParams<{ id: string }>();
   const componentDetail = componentsData.find((item) => item.id === id);
 
   if (!componentDetail) return <Navigate to="/not-found" />;
-
-  // const { component: RenderComponent, examples } = componentDetail;
 
   return (
     <div>
