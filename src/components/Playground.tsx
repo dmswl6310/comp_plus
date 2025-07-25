@@ -1,20 +1,21 @@
 import PreviewItem from "./PreviewItem";
+import { ComponentTypeMap } from "@/data/componentsData";
 
-type PlaygroundProps<T extends object> = {
-  renderComponent: React.ComponentType<T>;
-  propsItems: T[];
+type PlaygroundProps<K extends keyof ComponentTypeMap> = {
+  componentType: K;
+  examples: ComponentTypeMap[K][];
 };
 
-const Playground = <T extends object>({
-  renderComponent,
-  propsItems,
-}: PlaygroundProps<T>) => {
+const Playground = <K extends keyof ComponentTypeMap>({
+  componentType,
+  examples,
+}: PlaygroundProps<K>) => {
   return (
     <div>
-      {propsItems.map((props, index) => (
+      {examples.map((props, index) => (
         <PreviewItem
           key={index}
-          rcomponent={renderComponent}
+          componentType={componentType}
           componentProps={props}
         />
       ))}

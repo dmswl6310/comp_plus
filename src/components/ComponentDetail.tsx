@@ -2,10 +2,9 @@ import PageTitle from "@/components/common/PageTitle";
 import { componentsData } from "@/data/componentsData";
 import { Navigate, useParams } from "react-router-dom";
 import CodeBlock from "./common/CodeBlock";
-import Playground from "./Playground";
-// import { ComponentInfo } from "@/types/component.types";
+import Playground from "./Playground"; // import { ComponentInfo } from "@/types/component.types";
 
-const ComponentDetail = <T,>() => {
+const ComponentDetail = () => {
   const { id } = useParams<{ id: string }>();
   const componentDetail = componentsData.find((item) => item.id === id);
 
@@ -37,8 +36,8 @@ const ComponentDetail = <T,>() => {
           <CodeBlock code={componentDetail.code} />
         </div>
         <Playground
-          renderComponent={componentDetail.component}
-          propsItems={componentDetail.examples}
+          componentType={componentDetail.id}
+          examples={componentDetail.examples}
         />
       </div>
     </div>

@@ -1,4 +1,6 @@
-export const listExamples = [
+import { CustomListProps } from "./CustomList";
+
+export const listExamples: CustomListProps[] = [
   {
     first: "my",
     second: "name",

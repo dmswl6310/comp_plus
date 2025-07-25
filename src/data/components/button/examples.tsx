@@ -1,4 +1,6 @@
-export const buttonExamples = [
+import { CustomButtonProps } from "./CustomButton";
+
+export const buttonExamples: CustomButtonProps[] = [
   {
     label: "hihi",
   },
