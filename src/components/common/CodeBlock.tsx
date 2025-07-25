@@ -14,13 +14,15 @@ export function transpileToJS(tsCode: string): string {
     compilerOptions: {
       target: ts.ScriptTarget.ESNext,
       module: ts.ModuleKind.ESNext,
+      jsx: ts.JsxEmit.Preserve,
+      // jsx: ts.JsxEmit.React,
     },
   });
 
   return result.outputText;
 }
 
-const CodeBlock = ({ code, language = "javascript" }: CodeBlockProps) => {
+const CodeBlock = ({ code, language = "typescript" }: CodeBlockProps) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -44,6 +46,19 @@ const CodeBlock = ({ code, language = "javascript" }: CodeBlockProps) => {
         }}
       >
         {code}
+      </SyntaxHighlighter>
+      <SyntaxHighlighter
+        language="typescript"
+        style={oneLight}
+        wrapLines
+        wrapLongLines
+        customStyle={{
+          borderRadius: "8px",
+          padding: "1rem",
+          fontSize: "0.875rem",
+        }}
+      >
+        {transpileToJS(code)}
       </SyntaxHighlighter>
       <SyntaxHighlighter
         language="javascript"

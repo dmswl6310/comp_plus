@@ -7,8 +7,7 @@ import Playground from "./Playground";
 const ComponentDetail = () => {
   const { id } = useParams<{ id: string }>();
   const componentDetail = componentsData.find((item) => item.id === id);
-
-  if (!componentDetail) return <Navigate to="/not-found" />;
+  if (!componentDetail) return <Navigate to="/not-found" replace />;
 
   return (
     <div>
