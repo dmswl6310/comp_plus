@@ -1,8 +1,8 @@
 import PageTitle from "@/components/common/PageTitle";
 import { componentsData } from "@/data/componentsData";
 import { Navigate, useParams } from "react-router-dom";
-import CodeBlock from "./common/CodeBlock";
 import Playground from "./Playground";
+import TabContainer from "./common/TabContainer";
 
 const ComponentDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -32,7 +32,7 @@ const ComponentDetail = () => {
           </p>
         </div>
         <div>
-          <CodeBlock code={componentDetail.code} />
+          <TabContainer code={componentDetail.code} />
         </div>
         <Playground
           componentType={componentDetail.id}
