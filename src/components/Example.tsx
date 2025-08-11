@@ -38,7 +38,7 @@ const Example = <K extends keyof ComponentTypeMap>({
         ))}
         {`/>`}
       </div>
-      <button onClick={() => setIsExecuted(true)}>버튼</button>
+      <button onClick={() => setIsExecuted(true)}>실행</button>
       {isExecuted ? (
         <div className="rendered-result">
           <Component {...propsState} />
