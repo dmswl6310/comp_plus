@@ -20,10 +20,8 @@ function transpileToJS(tsCode: string): string {
 const TabContainer = ({ code }: { code: string }) => {
   const [tab, setTab] = useState<TabType>("typescript");
 
-  const codeString = useMemo(() => {
-    const result = tab == "javascript" ? transpileToJS(code) : code;
-    return result;
-  }, [code, tab]);
+  const jsCode = useMemo(() => transpileToJS(code), [code]);
+  const codeString = tab == "javascript" ? jsCode : code;
 
   return (
     <>
