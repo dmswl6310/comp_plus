@@ -1,4 +1,4 @@
-import PreviewItem from "./PreviewItem";
+import Example from "./Example";
 import { ComponentTypeMap } from "@/data/componentsData";
 
 type PlaygroundProps<K extends keyof ComponentTypeMap> = {
@@ -6,14 +6,14 @@ type PlaygroundProps<K extends keyof ComponentTypeMap> = {
   examples: ComponentTypeMap[K][];
 };
 
-const Playground = <K extends keyof ComponentTypeMap>({
+const Examples = <K extends keyof ComponentTypeMap>({
   componentType,
   examples,
 }: PlaygroundProps<K>) => {
   return (
     <div>
       {examples.map((props, index) => (
-        <PreviewItem
+        <Example
           key={index}
           componentType={componentType}
           componentProps={props}
@@ -23,4 +23,4 @@ const Playground = <K extends keyof ComponentTypeMap>({
   );
 };
 
-export default Playground;
+export default Examples;

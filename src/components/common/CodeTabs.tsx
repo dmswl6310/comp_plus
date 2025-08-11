@@ -17,7 +17,7 @@ function transpileToJS(tsCode: string): string {
   return result.outputText;
 }
 
-const TabContainer = ({ code }: { code: string }) => {
+const CodeTabs = ({ code }: { code: string }) => {
   const [tab, setTab] = useState<TabType>("typescript");
 
   const jsCode = useMemo(() => transpileToJS(code), [code]);
@@ -34,4 +34,4 @@ const TabContainer = ({ code }: { code: string }) => {
   );
 };
 
-export default TabContainer;
+export default CodeTabs;
