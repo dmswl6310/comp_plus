@@ -3,23 +3,20 @@ import { componentsData } from "@/data/componentsData";
 import { Navigate, useParams } from "react-router-dom";
 import Examples from "./Examples";
 import CodeTabs from "./common/CodeTabs";
-import ComponentDetailInfo from "./common/ComponentDetailInfo";
+import ComponentMeta from "./common/ComponentMeta";
 
 const ComponentDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const componentDetail = componentsData.find((item) => item.id === id);
-  if (!componentDetail) return <Navigate to="/not-found" replace />;
+  const detail = componentsData.find((c) => c.id === id);
+  if (!detail) return <Navigate to="/not-found" replace />;
 
   return (
     <div>
-      <PageTitle title={componentDetail.name} />
+      <PageTitle title={detail.name} />
       <div className="flex flex-col gap-4">
-        <ComponentDetailInfo componentDetail={componentDetail} />
-        <CodeTabs code={componentDetail.code} />
-        <Examples
-          componentType={componentDetail.id}
-          examples={componentDetail.examples}
-        />
+        <ComponentMeta info={detail} />
+        <CodeTabs code={detail.code} />
+        <Examples componentType={detail.id} examples={detail.examples} />
       </div>
     </div>
   );

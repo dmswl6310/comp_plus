@@ -1,6 +1,5 @@
 import { ComponentInfoUnion } from "@/data/componentsData";
 import { Link } from "react-router-dom";
-// import { ComponentInfo } from "@/types/component.types";
 
 const ComponentCard = ({ info }: { info: ComponentInfoUnion }) => {
   return (
@@ -10,7 +9,7 @@ const ComponentCard = ({ info }: { info: ComponentInfoUnion }) => {
           <img
             src={info.image}
             alt={`${info.name}`}
-            className="object-contiain h-full w-full"
+            className="h-full w-full object-contain"
           />
         </div>
         <h3 className="text-lg font-semibold text-gray-900">{info.name}</h3>
