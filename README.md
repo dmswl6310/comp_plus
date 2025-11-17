@@ -1,50 +1,23 @@
-# React + TypeScript + Vite
+## 1. 프로젝트 한 줄 소개
+- React + TypeScript를 사용한 컴포넌트 갤러리 사이트
+- 실무에서 자주쓰는 UI 컴포넌트들을 모아서, 코드와 프리뷰를 함께 볼 수 있는 사이트
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 2. 기술 스택
+- React, TypeScript, Vite, Tailwind CSS
+- (+) React Router, etc...
 
-Currently, two official plugins are available:
+## 3. 현재 주요 기능
+- 컴포넌트 리스트 조회
+- 컴포넌트 상세 페이지에서 ts, js 코드 보기&복사
+- props에 따른 프리뷰 확인
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 4. 폴더 구조 (대충이라도)
+- `src/components` : 공통 UI 컴포넌트
+- `src/data` : 컴포넌트 메타데이터(버튼, 리스트...등등)
+- `src/pages` (또는 routes) : 라우팅 관련 컴포넌트
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
-```
+## 5. 앞으로 할 일 (TODO)
+- [ ] TypeScript 타입 정리
+- [ ] ComponentDetail 구조 리팩토링
+- [ ] 전체적 UI 정리
+- [ ] 검색/태그 필터 기능 추가
