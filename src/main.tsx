@@ -1,3 +1,4 @@
+import "@fontsource/inter";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Components from "./pages/Components";

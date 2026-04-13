@@ -4,11 +4,10 @@ import Footer from "@components/common/Footer";
 import "./styles.css";
 
 const App = () => {
-  // 중첩 라우팅을 위한 outlet
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-white text-gray-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
       <Header />
-      <main className="flex-1 px-6 sm:px-12 lg:px-18 xl:px-22">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <Outlet />
       </main>
       <Footer />
