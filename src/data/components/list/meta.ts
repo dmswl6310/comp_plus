@@ -6,4 +6,10 @@ export const listMeta = {
   tags: ["form", "basic"],
   updatedAt: new Date("2025-07-07"),
   image: listThumbnail,
+  propControls: {
+    first: { type: "string" },
+    second: { type: "string" },
+    third: { type: "string" },
+    fourth: { type: "string" }
+  }
 };

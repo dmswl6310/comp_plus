@@ -6,4 +6,9 @@ export const badgeMeta = {
   tags: ["status", "indicator", "tag"],
   updatedAt: new Date(),
   image: thumbnail,
+  propControls: {
+    text: { type: "string" },
+    color: { type: "select", options: ["blue", "red", "green", "gray"] },
+    variant: { type: "select", options: ["solid", "outline"] }
+  }
 };

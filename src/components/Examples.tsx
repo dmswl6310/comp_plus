@@ -1,22 +1,22 @@
 import Example from "./Example";
-import { ComponentTypeMap } from "@/data/componentsData";
+import { ComponentInfo } from "@/types/component.types";
 
-type PlaygroundProps<K extends keyof ComponentTypeMap> = {
-  componentType: K;
-  examples: ComponentTypeMap[K][];
+type ExamplesProps = {
+  componentInfo: ComponentInfo;
+  examples: any[];
 };
 
-const Examples = <K extends keyof ComponentTypeMap>({
-  componentType,
+const Examples = ({
+  componentInfo,
   examples,
-}: PlaygroundProps<K>) => {
+}: ExamplesProps) => {
   return (
     <div>
-      {examples.map((props, index) => (
+      {examples.map((exampleData, index) => (
         <Example
           key={index}
-          componentType={componentType}
-          componentProps={props}
+          componentInfo={componentInfo}
+          exampleData={exampleData}
         />
       ))}
     </div>

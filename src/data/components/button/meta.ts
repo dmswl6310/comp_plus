@@ -6,4 +6,7 @@ export const buttonMeta = {
   tags: ["form", "basic"],
   updatedAt: new Date("2025-07-07"),
   image: buttonThumbnail,
+  propControls: {
+    label: { type: "string" }
+  }
 };

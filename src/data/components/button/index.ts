@@ -1,12 +1,17 @@
 import { buttonMeta } from "./meta";
 import buttonCode from "./CustomButton.tsx?raw";
+import buttonCodeJs from "./CustomButton.tsx?jsx-raw";
 import { buttonExamples } from "./examples";
-import { CustomButtonProps } from "./CustomButton";
+import { CustomButton, CustomButtonProps } from "./CustomButton";
 import { ComponentInfo } from "@/types/component.types";
 
-export const buttonComponent: ComponentInfo<CustomButtonProps> = {
+const buttonComponent: ComponentInfo<CustomButtonProps> = {
   id: "button1",
+  Component: CustomButton,
   ...buttonMeta,
   code: buttonCode,
+  codeJs: buttonCodeJs,
   examples: buttonExamples,
 };
+
+export default buttonComponent;

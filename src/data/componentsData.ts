@@ -1,46 +1,14 @@
-// import { ComponentInfo } from "@/types/component.types";
 import { ComponentInfo } from "@/types/component.types";
-import { buttonComponent } from "./components/button";
-import {
-  CustomButton,
-  CustomButtonProps,
-} from "./components/button/CustomButton";
-import { listComponent } from "./components/list";
-import { CustomList, CustomListProps } from "./components/list/CustomList";
-import { badgeComponent } from "./components/badge";
-import { CustomBadge, CustomBadgeProps } from "./components/badge/CustomBadge";
-import { inputComponent } from "./components/input";
-import { CustomInput, CustomInputProps } from "./components/input/CustomInput";
-import { cardComponent } from "./components/card";
-import { CustomCard, CustomCardProps } from "./components/card/CustomCard";
 
-export const componentsData: ComponentInfoUnion[] = [
-  buttonComponent,
-  listComponent,
-  badgeComponent,
-  inputComponent,
-  cardComponent,
-];
+// Vite의 정적 분석 가능 import.meta.glob 패턴
+// src/data/components/[name]/index.ts에서 default export 된 객체들을 가져옵니다.
+const modules = import.meta.glob<{ default: ComponentInfo }>("./components/*/index.ts", { eager: true });
 
-export const componentMap = { 
-  button1: CustomButton, 
-  list: CustomList,
-  badge: CustomBadge,
-  input: CustomInput,
-  card: CustomCard
-};
+export const componentsData: ComponentInfo[] = Object.values(modules).map((module) => module.default);
 
-export type ComponentTypeMap = {
-  button1: CustomButtonProps;
-  list: CustomListProps;
-  badge: CustomBadgeProps;
-  input: CustomInputProps;
-  card: CustomCardProps;
-};
-
-export type ComponentInfoUnion =
-  | ComponentInfo<CustomButtonProps>
-  | ComponentInfo<CustomListProps>
-  | ComponentInfo<CustomBadgeProps>
-  | ComponentInfo<CustomInputProps>
-  | ComponentInfo<CustomCardProps>;
+export const componentMap = componentsData.reduce((acc, curr) => {
+  if (curr.Component) {
+    acc[curr.id] = curr.Component;
+  }
+  return acc;
+}, {} as Record<string, React.ElementType>);

@@ -6,4 +6,9 @@ export const inputMeta = {
   tags: ["form", "input", "basic"],
   updatedAt: new Date(),
   image: thumbnail,
+  propControls: {
+    placeholder: { type: "string" },
+    type: { type: "select", options: ["text", "password", "email"] },
+    disabled: { type: "boolean" }
+  }
 };

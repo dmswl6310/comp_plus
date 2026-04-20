@@ -6,4 +6,9 @@ export const cardMeta = {
   tags: ["layout", "container", "surface"],
   updatedAt: new Date(),
   image: thumbnail,
+  propControls: {
+    title: { type: "string" },
+    description: { type: "string" },
+    footerText: { type: "string" }
+  }
 };

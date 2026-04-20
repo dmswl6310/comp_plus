@@ -38,7 +38,7 @@ const ComponentDetail = () => {
               <div className="h-6 w-1.5 bg-blue-600 rounded-full"></div>
               <h2 className="text-2xl font-bold text-gray-900">미리보기 및 테스트</h2>
             </div>
-            <Examples componentType={detail.id} examples={detail.examples} />
+            <Examples componentInfo={detail} examples={detail.examples} />
           </section>
         </div>
         
@@ -49,7 +49,7 @@ const ComponentDetail = () => {
               <h2 className="text-2xl font-bold text-gray-900">소스 코드</h2>
             </div>
             <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:border-gray-300 transition-colors">
-              <CodeTabs code={detail.code} />
+              <CodeTabs code={detail.code} codeJs={detail.codeJs} />
             </div>
           </section>
         </div>
