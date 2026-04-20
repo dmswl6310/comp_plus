@@ -2,7 +2,37 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 import path from "path";
+import fs from "fs";
+import { transformSync } from "esbuild";
 import tailwindcss from "@tailwindcss/vite";
+
+function rawJsPlugin() {
+  return {
+    name: "vite-plugin-raw-js",
+    enforce: "pre" as const,
+    load(id: string) {
+      if (id.endsWith("?jsx-raw")) {
+        const filePath = id.split("?")[0];
+        let fileContent = "";
+        try {
+          fileContent = fs.readFileSync(filePath, "utf-8");
+        } catch (e) {
+          return `export default ""`;
+        }
+        
+        const result = transformSync(fileContent, {
+          loader: "tsx",
+          jsx: "preserve",
+          target: "esnext",
+          format: "esm",
+        });
+        
+        return `export default ${JSON.stringify(result.code)};`;
+      }
+      return null;
+    },
+  };
+}
 
 export default defineConfig({
   resolve: {
@@ -16,6 +46,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    rawJsPlugin(),
     react(),
     tailwindcss(),
     VitePWA({

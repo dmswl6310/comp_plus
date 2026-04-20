@@ -1,9 +1,13 @@
-import buttonThumbnail from "@assets/list-thumbnail.png";
+import thumbnail from "@assets/button-thumbnail.png";
+import { PropControl } from "@/types/component.types";
 
 export const buttonMeta = {
   name: "Button",
   description: "클릭 가능한 요소입니다.",
   tags: ["form", "basic"],
   updatedAt: new Date("2025-07-07"),
-  image: buttonThumbnail,
+  image: thumbnail,
+  propControls: {
+    label: { type: "string" as PropControl["type"] }
+  }
 };
