@@ -1,4 +1,5 @@
 import thumbnail from "@assets/modal-thumbnail.png";
+import { PropControl } from "@/types/component.types";
 
 export const modalMeta = {
   name: "Modal",
@@ -7,8 +8,8 @@ export const modalMeta = {
   updatedAt: new Date(),
   image: thumbnail,
   propControls: {
-    title: { type: "string" },
-    description: { type: "string" },
-    confirmText: { type: "string" },
+    title: { type: "string" as PropControl["type"] },
+    description: { type: "string" as PropControl["type"] },
+    confirmText: { type: "string" as PropControl["type"] },
   }
 };

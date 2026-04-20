@@ -1,4 +1,5 @@
 import thumbnail from "@assets/avatar-thumbnail.png";
+import { PropControl } from "@/types/component.types";
 
 export const avatarMeta = {
   name: "Avatar",
@@ -7,8 +8,8 @@ export const avatarMeta = {
   updatedAt: new Date(),
   image: thumbnail,
   propControls: {
-    name: { type: "string" },
-    size: { type: "select", options: ["sm", "md", "lg"] },
-    online: { type: "boolean" },
+    name: { type: "string" as PropControl["type"] },
+    size: { type: "select" as PropControl["type"], options: ["sm", "md", "lg"] },
+    online: { type: "boolean" as PropControl["type"] },
   }
 };

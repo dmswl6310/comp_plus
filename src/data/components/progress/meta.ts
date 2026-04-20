@@ -1,4 +1,5 @@
 import thumbnail from "@assets/progress-thumbnail.png";
+import { PropControl } from "@/types/component.types";
 
 export const progressMeta = {
   name: "Progress",
@@ -7,8 +8,8 @@ export const progressMeta = {
   updatedAt: new Date(),
   image: thumbnail,
   propControls: {
-    label: { type: "string" },
-    value: { type: "string" },
-    color: { type: "select", options: ["blue", "green", "indigo", "amber"] },
+    label: { type: "string" as PropControl["type"] },
+    value: { type: "string" as PropControl["type"] },
+    color: { type: "select" as PropControl["type"], options: ["blue", "green", "indigo", "amber"] },
   }
 };

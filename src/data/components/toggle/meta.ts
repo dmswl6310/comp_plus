@@ -1,4 +1,5 @@
 import thumbnail from "@assets/toggle-thumbnail.png";
+import { PropControl } from "@/types/component.types";
 
 export const toggleMeta = {
   name: "Toggle",
@@ -7,7 +8,7 @@ export const toggleMeta = {
   updatedAt: new Date(),
   image: thumbnail,
   propControls: {
-    label: { type: "string" },
-    checked: { type: "boolean" },
+    label: { type: "string" as PropControl["type"] },
+    checked: { type: "boolean" as PropControl["type"] },
   }
 };

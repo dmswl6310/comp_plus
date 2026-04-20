@@ -1,4 +1,5 @@
 import thumbnail from "@assets/card-thumbnail.png";
+import { PropControl } from "@/types/component.types";
 
 export const cardMeta = {
   name: "Card",
@@ -7,8 +8,8 @@ export const cardMeta = {
   updatedAt: new Date(),
   image: thumbnail,
   propControls: {
-    title: { type: "string" },
-    description: { type: "string" },
-    footerText: { type: "string" }
+    title: { type: "string" as PropControl["type"] },
+    description: { type: "string" as PropControl["type"] },
+    footerText: { type: "string" as PropControl["type"] }
   }
 };

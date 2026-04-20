@@ -1,4 +1,5 @@
 import thumbnail from "@assets/button-thumbnail.png";
+import { PropControl } from "@/types/component.types";
 
 export const buttonMeta = {
   name: "Button",
@@ -7,6 +8,6 @@ export const buttonMeta = {
   updatedAt: new Date("2025-07-07"),
   image: thumbnail,
   propControls: {
-    label: { type: "string" }
+    label: { type: "string" as PropControl["type"] }
   }
 };

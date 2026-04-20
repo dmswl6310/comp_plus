@@ -1,4 +1,5 @@
 import listThumbnail from "@assets/list-thumbnail-new.png";
+import { PropControl } from "@/types/component.types";
 
 export const listMeta = {
   name: "List",
@@ -7,9 +8,9 @@ export const listMeta = {
   updatedAt: new Date("2025-07-07"),
   image: listThumbnail,
   propControls: {
-    first: { type: "string" },
-    second: { type: "string" },
-    third: { type: "string" },
-    fourth: { type: "string" }
+    first: { type: "string" as PropControl["type"] },
+    second: { type: "string" as PropControl["type"] },
+    third: { type: "string" as PropControl["type"] },
+    fourth: { type: "string" as PropControl["type"] }
   }
 };

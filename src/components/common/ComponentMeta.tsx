@@ -1,6 +1,6 @@
-import { ComponentInfoUnion } from "@/data/componentsData";
+import { ComponentInfo } from "@/types/component.types";
 
-const ComponentMeta = ({ info }: { info: ComponentInfoUnion }) => {
+const ComponentMeta = ({ info }: { info: ComponentInfo }) => {
   return (
     <div>
       <p className="text-sm text-gray-700">{info.description}</p>

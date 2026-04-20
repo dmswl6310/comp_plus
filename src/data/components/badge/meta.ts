@@ -1,4 +1,5 @@
 import thumbnail from "@assets/badge-thumbnail.png";
+import { PropControl } from "@/types/component.types";
 
 export const badgeMeta = {
   name: "Badge",
@@ -7,8 +8,8 @@ export const badgeMeta = {
   updatedAt: new Date(),
   image: thumbnail,
   propControls: {
-    text: { type: "string" },
-    color: { type: "select", options: ["blue", "red", "green", "gray"] },
-    variant: { type: "select", options: ["solid", "outline"] }
+    text: { type: "string" as PropControl["type"] },
+    color: { type: "select" as PropControl["type"], options: ["blue", "red", "green", "gray"] },
+    variant: { type: "select" as PropControl["type"], options: ["solid", "outline"] }
   }
 };

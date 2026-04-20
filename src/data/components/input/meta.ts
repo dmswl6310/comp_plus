@@ -1,4 +1,5 @@
 import thumbnail from "@assets/input-thumbnail.png";
+import { PropControl } from "@/types/component.types";
 
 export const inputMeta = {
   name: "Input",
@@ -7,8 +8,8 @@ export const inputMeta = {
   updatedAt: new Date(),
   image: thumbnail,
   propControls: {
-    placeholder: { type: "string" },
-    type: { type: "select", options: ["text", "password", "email"] },
-    disabled: { type: "boolean" }
+    placeholder: { type: "string" as PropControl["type"] },
+    type: { type: "select" as PropControl["type"], options: ["text", "password", "email"] },
+    disabled: { type: "boolean" as PropControl["type"] }
   }
 };

@@ -1,4 +1,5 @@
 import thumbnail from "@assets/toast-thumbnail.png";
+import { PropControl } from "@/types/component.types";
 
 export const toastMeta = {
   name: "Toast",
@@ -7,7 +8,7 @@ export const toastMeta = {
   updatedAt: new Date(),
   image: thumbnail,
   propControls: {
-    message: { type: "string" },
-    variant: { type: "select", options: ["success", "error", "info", "warning"] },
+    message: { type: "string" as PropControl["type"] },
+    variant: { type: "select" as PropControl["type"], options: ["success", "error", "info", "warning"] },
   }
 };
