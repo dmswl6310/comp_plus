@@ -1,0 +1,40 @@
+export type CustomAvatarProps = {
+  name: string;
+  size: "sm" | "md" | "lg";
+  online: boolean;
+};
+
+const COLORS = ["bg-blue-500", "bg-purple-500", "bg-teal-500", "bg-orange-500", "bg-pink-500", "bg-indigo-500"];
+
+const getInitials = (name: string) =>
+  name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2);
+
+const getColor = (name: string) => COLORS[name.charCodeAt(0) % COLORS.length];
+
+export const CustomAvatar = ({ name, size = "md", online = false }: CustomAvatarProps) => {
+  const isOnline = String(online) === "true" || online === true;
+
+  const sizeMap = {
+    sm: { box: "w-8 h-8", text: "text-xs", dot: "w-2 h-2 border" },
+    md: { box: "w-11 h-11", text: "text-sm", dot: "w-3 h-3 border-2" },
+    lg: { box: "w-16 h-16", text: "text-lg", dot: "w-4 h-4 border-2" },
+  };
+
+  const s = sizeMap[size] || sizeMap.md;
+
+  return (
+    <div className="relative inline-flex shrink-0">
+      <div className={`${s.box} ${getColor(name)} rounded-full flex items-center justify-center text-white font-bold ${s.text}`}>
+        {getInitials(name) || "?"}
+      </div>
+      {isOnline && (
+        <span className={`absolute bottom-0 right-0 ${s.dot} bg-green-500 rounded-full border-white`} />
+      )}
+    </div>
+  );
+};

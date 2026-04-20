@@ -1,4 +1,4 @@
-import listThumbnail from "@assets/list-thumbnail.png";
+import listThumbnail from "@assets/list-thumbnail-new.png";
 
 export const listMeta = {
   name: "List",

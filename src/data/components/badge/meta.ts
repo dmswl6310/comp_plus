@@ -1,4 +1,4 @@
-import thumbnail from "@assets/list-thumbnail.png"; // Reusing placeholder
+import thumbnail from "@assets/badge-thumbnail.png";
 
 export const badgeMeta = {
   name: "Badge",

@@ -1,4 +1,4 @@
-import thumbnail from "@assets/list-thumbnail.png"; // Reusing placeholder
+import thumbnail from "@assets/input-thumbnail.png";
 
 export const inputMeta = {
   name: "Input",
