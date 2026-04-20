@@ -1,10 +1,8 @@
-# COMP_PLUS
+# Uikki✦Uikki
 
 React + TypeScript + Vite 기반으로 만든 **UI 컴포넌트 갤러리 & 플레이그라운드** 프로젝트입니다.
 
 현재 프로젝트는 단순 문서 사이트보다, **컴포넌트 목록 탐색 → 상세 설명 확인 → 코드 확인 및 복사 → props 조작 기반 라이브 프리뷰 테스트**까지 한 흐름으로 경험할 수 있게 구성되어 있습니다.
-
-> 현재 UI 브랜딩은 `Uikki✦Uikki`로 표시되고 있지만, 저장소/프로젝트 기준 이름은 `COMP_PLUS`입니다.
 
 ---
 
@@ -285,21 +283,6 @@ npm install
 npm run dev
 ```
 
-### 3) 프로덕션 빌드
-```bash
-npm run build
-```
-
-### 4) 린트 실행
-```bash
-npm run lint
-```
-
-### 5) 빌드 결과 미리보기
-```bash
-npm run preview
-```
-
 ---
 
 ## 14. 컴포넌트 추가 방법
@@ -320,7 +303,6 @@ src/data/components/my-component/
 ### 3) `index.ts`에서 `ComponentInfo` 형태로 export
 `default export`만 맞춰주면 `componentsData.ts`의 `import.meta.glob`이 자동으로 수집합니다.
 
-즉 현재 구조에서는 예전처럼 중앙 배열에 직접 항목을 추가하는 부담이 크게 줄었습니다.
 
 ---
 
@@ -333,9 +315,6 @@ src/data/components/my-component/
 - 컴포넌트 자동 등록 구조 도입
 - props 기반 인터랙티브 테스트 UI 적용
 - TypeScript / JavaScript 코드 동시 제공 구조 반영
-
-즉, 지금은 “처음 만드는 단계”보다는
-**구조를 다듬고 확장성을 높이는 리팩토링 단계**에 가깝습니다.
 
 ---
 
@@ -363,7 +342,3 @@ src/data/components/my-component/
 - 각 컴포넌트별 사용 가이드, props 표, 사용 시 주의사항 등을 추가하면 더 좋은 문서 사이트가 될 수 있음
 
 ---
-
-## 17. 한 줄 요약
-
-**COMP_PLUS는 직접 만든 UI 컴포넌트를 자동 등록하고, 목록/검색/상세/코드/라이브 프리뷰까지 한 흐름으로 관리하는 React 기반 컴포넌트 플레이그라운드 프로젝트입니다.**
