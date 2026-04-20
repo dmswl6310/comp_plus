@@ -6,7 +6,7 @@ export interface PropControl {
   label?: string; // Optional user-friendly label
 }
 
-export interface ComponentInfo<T = any> {
+export interface ComponentInfo<T = Record<string, unknown>> {
   id: string; // 라우팅이나 key로 쓸 고유id
   name: string; // UI에 보여질 실제 컴포넌트 이름
   tags?: string[]; // 검색/필터용 태그 (ex. form, basic)

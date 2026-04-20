@@ -5,19 +5,19 @@ import { ComponentInfo } from "@/types/component.types";
 
 type ExampleProps = {
   componentInfo: ComponentInfo;
-  exampleData: any;
+  exampleData: Record<string, unknown>;
 };
 
 const Example = ({
   componentInfo,
   exampleData,
 }: ExampleProps) => {
-  const Component = componentInfo.Component || (componentMap[componentInfo.id] as React.ComponentType<any>);
-  const [propsState, setPropsState] = useState(exampleData);
+  const Component = componentInfo.Component || componentMap[componentInfo.id];
+  const [propsState, setPropsState] = useState<Record<string, unknown>>(exampleData);
   const controls = componentInfo.propControls || {};
 
-  const handleChange = (key: string, newValue: any) => {
-    setPropsState((prev: any) => ({
+  const handleChange = (key: string, newValue: unknown) => {
+    setPropsState((prev) => ({
       ...prev,
       [key]: newValue,
     }));

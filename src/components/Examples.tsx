@@ -3,7 +3,7 @@ import { ComponentInfo } from "@/types/component.types";
 
 type ExamplesProps = {
   componentInfo: ComponentInfo;
-  examples: any[];
+  examples: Record<string, unknown>[];
 };
 
 const Examples = ({
