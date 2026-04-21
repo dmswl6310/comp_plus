@@ -15,7 +15,7 @@ const CodeTabs = ({ code, codeJs, htmlCode }: { code: string; codeJs?: string; h
           onClick={() => setTab("typescript")}
           className={`pb-3 px-1 text-sm font-medium transition-all relative whitespace-nowrap ${tab === 'typescript' ? 'text-gray-900' : 'text-gray-400 hover:text-gray-600'}`}
         >
-          TypeScript
+          React (TS)
           {tab === 'typescript' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900 rounded-t-full"></div>}
         </button>
         {codeJs && (
@@ -23,7 +23,7 @@ const CodeTabs = ({ code, codeJs, htmlCode }: { code: string; codeJs?: string; h
             onClick={() => setTab("javascript")}
             className={`pb-3 px-1 text-sm font-medium transition-all relative whitespace-nowrap ${tab === 'javascript' ? 'text-gray-900' : 'text-gray-400 hover:text-gray-600'}`}
           >
-            JavaScript
+            React (JS)
             {tab === 'javascript' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900 rounded-t-full"></div>}
           </button>
         )}
@@ -32,7 +32,7 @@ const CodeTabs = ({ code, codeJs, htmlCode }: { code: string; codeJs?: string; h
             onClick={() => setTab("html")}
             className={`pb-3 px-1 text-sm font-medium transition-all relative whitespace-nowrap ${tab === 'html' ? 'text-gray-900' : 'text-gray-400 hover:text-gray-600'}`}
           >
-            HTML (Tailwind)
+            HTML
             {tab === 'html' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900 rounded-t-full"></div>}
           </button>
         )}
