@@ -1,5 +1,3 @@
-import { X } from "lucide-react";
-
 export type CustomModalProps = {
   title: string;
   description: string;
@@ -16,7 +14,7 @@ export const CustomModal = ({ title, description, confirmText }: CustomModalProp
           <p className="mt-1.5 text-sm text-gray-500 leading-relaxed">{description}</p>
         </div>
         <button className="ml-4 shrink-0 flex h-8 w-8 items-center justify-center rounded-lg text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-colors">
-          <X size={16} />
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
       </div>
       {/* Footer */}
