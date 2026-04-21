@@ -3,10 +3,21 @@ import { Search, X } from "lucide-react";
 import PageTitle from "@/components/common/PageTitle";
 import ComponentList from "@/components/ComponentList";
 import { componentsData } from "@/data/componentsData";
+import { ComponentCategory } from "@/types/component.types";
+
+const categories: ComponentCategory[] = ["ui", "blocks", "templates"];
+
+const categoryLabel: Record<ComponentCategory, string> = {
+  ui: "UI",
+  blocks: "Blocks",
+  templates: "Templates",
+};
 
 const Components = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] =
+    useState<ComponentCategory | null>(null);
 
   // 모든 컴포넌트에서 고유한 태그 추출
   const availableTags = useMemo(() => {
@@ -14,17 +25,39 @@ const Components = () => {
     return Array.from(new Set(tags));
   }, []);
 
+  const categoryCounts = useMemo(
+    () =>
+      categories.reduce(
+        (acc, category) => {
+          acc[category] = componentsData.filter(
+            (component) => (component.category ?? "ui") === category,
+          ).length;
+          return acc;
+        },
+        { ui: 0, blocks: 0, templates: 0 } as Record<ComponentCategory, number>,
+      ),
+    [],
+  );
+
   const filteredComponents = useMemo(() => {
     return componentsData.filter((comp) => {
+      const query = searchQuery.toLowerCase().trim();
       const matchSearch =
-        comp.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        comp.description.toLowerCase().includes(searchQuery.toLowerCase());
+        query === "" ||
+        comp.name.toLowerCase().includes(query) ||
+        comp.id.toLowerCase().includes(query) ||
+        comp.description.toLowerCase().includes(query) ||
+        (comp.aliases && comp.aliases.some((alias) => alias.toLowerCase().includes(query))) ||
+        (comp.tags && comp.tags.some((tag) => tag.toLowerCase().includes(query)));
       
       const matchTag = selectedTag ? comp.tags?.includes(selectedTag) : true;
+      const matchCategory = selectedCategory
+        ? (comp.category ?? "ui") === selectedCategory
+        : true;
       
-      return matchSearch && matchTag;
+      return matchSearch && matchTag && matchCategory;
     });
-  }, [searchQuery, selectedTag]);
+  }, [searchQuery, selectedTag, selectedCategory]);
 
   return (
     <div className="animate-fade-up">
@@ -34,6 +67,37 @@ const Components = () => {
       />
       
       <div className="mb-8 flex flex-col gap-6">
+        <div className="flex flex-wrap gap-2 rounded-2xl border border-gray-200 bg-white p-2 shadow-sm">
+          <button
+            onClick={() => setSelectedCategory(null)}
+            className={`rounded-xl px-4 py-2 text-sm font-semibold transition-all ${
+              selectedCategory === null
+                ? "bg-gray-900 text-white shadow-sm"
+                : "bg-white text-gray-600 hover:bg-gray-50"
+            }`}
+          >
+            전체
+          </button>
+          {categories.map((category) => {
+            const count = categoryCounts[category];
+            const isActive = selectedCategory === category;
+
+            return (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`rounded-xl px-4 py-2 text-sm font-semibold transition-all ${
+                  isActive
+                    ? "bg-blue-600 text-white shadow-sm"
+                    : "bg-blue-50 text-blue-700 hover:bg-blue-100"
+                } ${count === 0 ? "opacity-60" : ""}`}
+              >
+                {categoryLabel[category]} · {count}
+              </button>
+            );
+          })}
+        </div>
+
         <div className="relative">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
             <Search size={20} className="text-gray-400" />

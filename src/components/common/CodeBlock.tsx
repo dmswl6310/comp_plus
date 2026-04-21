@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Copy, Check } from "lucide-react";
+import { useToast } from "./ToastProvider";
 
 type CodeBlockProps = {
   code: string;
@@ -11,10 +12,12 @@ type CodeBlockProps = {
 
 const CodeBlock = ({ code, language }: CodeBlockProps) => {
   const [copied, setCopied] = useState(false);
+  const { toast } = useToast();
 
   const handleCopy = () => {
     copy(code);
     setCopied(true);
+    toast("✅ 클립보드에 복사되었습니다.", "success");
     setTimeout(() => setCopied(false), 2000);
   };
 

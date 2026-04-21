@@ -16,7 +16,7 @@ function rawJsPlugin() {
         let fileContent = "";
         try {
           fileContent = fs.readFileSync(filePath, "utf-8");
-        } catch (e) {
+        } catch {
           return `export default ""`;
         }
         
