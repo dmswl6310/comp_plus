@@ -16,9 +16,14 @@ const Components = () => {
 
   const filteredComponents = useMemo(() => {
     return componentsData.filter((comp) => {
+      const query = searchQuery.toLowerCase().trim();
       const matchSearch =
-        comp.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        comp.description.toLowerCase().includes(searchQuery.toLowerCase());
+        query === "" ||
+        comp.name.toLowerCase().includes(query) ||
+        comp.id.toLowerCase().includes(query) ||
+        comp.description.toLowerCase().includes(query) ||
+        (comp.aliases && comp.aliases.some((alias) => alias.toLowerCase().includes(query))) ||
+        (comp.tags && comp.tags.some((tag) => tag.toLowerCase().includes(query)));
       
       const matchTag = selectedTag ? comp.tags?.includes(selectedTag) : true;
       

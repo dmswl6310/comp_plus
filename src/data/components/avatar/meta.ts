@@ -5,6 +5,7 @@ export const avatarMeta = {
   name: "Avatar",
   description: "사용자를 대표하는 아이콘 형태의 프로필 컴포넌트입니다.",
   tags: ["display", "user", "profile"],
+  aliases: ["아바타", "프로필", "이미지", "사용자"],
   updatedAt: new Date(),
   image: thumbnail,
   propControls: {

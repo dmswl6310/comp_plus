@@ -60,6 +60,16 @@ const Example = ({
                     <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                     <span className="ml-3 text-sm font-medium text-gray-600">{val ? "활성화됨" : "비활성화됨"}</span>
                   </label>
+                ) : controlType === "number" ? (
+                  <input
+                    type="number"
+                    value={Number(val) || 0}
+                    min={controls[key]?.min}
+                    max={controls[key]?.max}
+                    step={controls[key]?.step}
+                    onChange={(e) => handleChange(key, Number(e.target.value))}
+                    className="w-full rounded-xl border border-gray-200 bg-gray-50/50 py-2 px-3 text-gray-900 outline-none transition-all focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/10 sm:text-sm"
+                  />
                 ) : controlType === "select" ? (
                   <select
                     value={String(val)}
