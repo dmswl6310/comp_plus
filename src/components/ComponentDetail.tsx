@@ -4,11 +4,38 @@ import { componentsData } from "@/data/componentsData";
 import Examples from "./Examples";
 import CodeTabs from "./common/CodeTabs";
 
+import { renderToStaticMarkup } from "react-dom/server";
+
+// 간단한 HTML 포매터 (태그 사이에 줄바꿈과 들여쓰기 추가)
+const formatHTML = (html: string) => {
+  let formatted = "";
+  let indent = "";
+  
+  html.split(/>\s*</).forEach((element) => {
+    if (element.match(/^\/\w/)) {
+      indent = indent.substring(2);
+    }
+    
+    formatted += indent + "<" + element + ">\n";
+    
+    // input, img, br, hr 등의 닫는 태그가 없는 태그는 들여쓰기를 증가시키지 않음
+    if (element.match(/^<?\w[^>]*[^\/]$/) && !element.startsWith("input") && !element.startsWith("img") && !element.startsWith("br") && !element.startsWith("hr") && !element.startsWith("path") && !element.startsWith("circle") && !element.startsWith("line") && !element.startsWith("polyline")) {
+      indent += "  ";
+    }
+  });
+  
+  return formatted.substring(1, formatted.length - 2).trim();
+};
+
 const ComponentDetail = () => {
   const { id } = useParams<{ id: string }>();
   const detail = componentsData.find((c) => c.id === id);
   
   if (!detail) return <Navigate to="/not-found" replace />;
+
+  const htmlCode = detail.Component && detail.examples?.length > 0
+    ? formatHTML(renderToStaticMarkup(<detail.Component {...detail.examples[0]} />))
+    : "";
 
   return (
     <div className="animate-fade-up max-w-6xl mx-auto">
@@ -49,7 +76,7 @@ const ComponentDetail = () => {
               <h2 className="text-2xl font-bold text-gray-900">소스 코드</h2>
             </div>
             <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:border-gray-300 transition-colors">
-              <CodeTabs code={detail.code} codeJs={detail.codeJs} />
+              <CodeTabs code={detail.code} codeJs={detail.codeJs} htmlCode={htmlCode} />
             </div>
           </section>
         </div>
