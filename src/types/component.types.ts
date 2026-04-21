@@ -1,4 +1,5 @@
 export type ControlType = "string" | "boolean" | "select" | "number";
+export type ComponentCategory = "ui" | "blocks" | "templates";
 
 export interface PropControl {
   type: ControlType;
@@ -12,6 +13,7 @@ export interface PropControl {
 export interface ComponentInfo<T = Record<string, unknown>> {
   id: string; // 라우팅이나 key로 쓸 고유id
   name: string; // UI에 보여질 실제 컴포넌트 이름
+  category?: ComponentCategory; // ui | blocks | templates
   tags?: string[]; // 검색/필터용 태그 (ex. form, basic)
   aliases?: string[]; // 한국어 검색 등 부가적인 문자열 검색에 잡힐 키워드들
   image?: string; // 썸네일 이미지
