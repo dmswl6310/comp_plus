@@ -19,7 +19,7 @@ const formatHTML = (html: string) => {
     formatted += indent + "<" + element + ">\n";
     
     // input, img, br, hr 등의 닫는 태그가 없는 태그는 들여쓰기를 증가시키지 않음
-    if (element.match(/^<?\w[^>]*[^\/]$/) && !element.startsWith("input") && !element.startsWith("img") && !element.startsWith("br") && !element.startsWith("hr") && !element.startsWith("path") && !element.startsWith("circle") && !element.startsWith("line") && !element.startsWith("polyline")) {
+    if (element.match(/^<?\w[^>]*[^/]$/) && !element.startsWith("input") && !element.startsWith("img") && !element.startsWith("br") && !element.startsWith("hr") && !element.startsWith("path") && !element.startsWith("circle") && !element.startsWith("line") && !element.startsWith("polyline")) {
       indent += "  ";
     }
   });
