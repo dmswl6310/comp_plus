@@ -1,6 +1,12 @@
 import { ComponentInfo } from "@/types/component.types";
 import { Link } from "react-router-dom";
 
+const categoryLabel = {
+  ui: "UI",
+  blocks: "Blocks",
+  templates: "Templates",
+} as const;
+
 const ComponentCard = ({ info }: { info: ComponentInfo }) => {
   return (
     <Link to={`/components/${info.id}`}>
@@ -12,7 +18,14 @@ const ComponentCard = ({ info }: { info: ComponentInfo }) => {
             className="h-full w-full object-contain"
           />
         </div>
-        <h3 className="text-lg font-semibold text-gray-900">{info.name}</h3>
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-lg font-semibold text-gray-900">{info.name}</h3>
+          {info.category && (
+            <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-slate-600">
+              {categoryLabel[info.category]}
+            </span>
+          )}
+        </div>
         {info.tags && (
           <p className="-mt-2 text-xs text-gray-500 italic">
             {info.tags.join(", ")}

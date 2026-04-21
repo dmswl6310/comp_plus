@@ -6,6 +6,12 @@ import CodeTabs from "./common/CodeTabs";
 
 import { renderToStaticMarkup } from "react-dom/server";
 
+const categoryLabel = {
+  ui: "UI",
+  blocks: "Blocks",
+  templates: "Templates",
+} as const;
+
 // 간단한 HTML 포매터 (태그 사이에 줄바꿈과 들여쓰기 추가)
 const formatHTML = (html: string) => {
   let formatted = "";
@@ -50,6 +56,11 @@ const ComponentDetail = () => {
         <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">{detail.name}</h1>
         <p className="mt-4 text-lg text-gray-500 leading-relaxed max-w-3xl">{detail.description}</p>
         <div className="mt-6 flex flex-wrap gap-2">
+          {detail.category && (
+            <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-semibold text-slate-700">
+              {categoryLabel[detail.category]}
+            </span>
+          )}
           {detail.tags?.map((tag) => (
             <span key={tag} className="rounded-full bg-indigo-50 border border-indigo-100 px-3 py-1 text-sm font-medium text-indigo-700">
               {tag}

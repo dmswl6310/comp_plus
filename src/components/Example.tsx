@@ -2,6 +2,7 @@ import { componentMap } from "@/data/componentsData";
 import React, { useState } from "react";
 import { Settings2 } from "lucide-react";
 import { ComponentInfo } from "@/types/component.types";
+import PreviewShell from "./preview/PreviewShell";
 
 type ExampleProps = {
   componentInfo: ComponentInfo;
@@ -25,12 +26,11 @@ const Example = ({
 
   return (
     <div className="mb-10 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm flex flex-col hover:border-blue-300 transition-colors duration-300">
-      {/* 렌더링 결과 공간 (미리보기) */}
-      <div className="flex-1 p-8 sm:p-12 border-b border-gray-100 bg-[#fafafa] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] flex items-center justify-center min-h-[250px]">
+      <PreviewShell>
         <div className="animate-fade-up w-full flex justify-center">
           <Component {...propsState} />
         </div>
-      </div>
+      </PreviewShell>
       
       {/* Properties 제어 패널 */}
       <div className="bg-white p-6">
