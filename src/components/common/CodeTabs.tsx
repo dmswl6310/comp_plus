@@ -8,10 +8,10 @@ const processCode = (rawCode: string, isHtml: boolean, hide: boolean) => {
   if (!hide || !rawCode) return rawCode;
   let processed = rawCode;
   if (isHtml) {
-    processed = processed.replace(/class="[^"]*"/g, 'class="..."');
+    processed = processed.replace(/\s+class="[^"]*"/g, '');
   } else {
-    processed = processed.replace(/className="[^"]*"/g, 'className="..."');
-    processed = processed.replace(/className=\{[^}]*\}/g, 'className={...}');
+    processed = processed.replace(/\s+className="[^"]*"/g, '');
+    processed = processed.replace(/\s+className=\{[^}]*\}/g, '');
   }
   return processed;
 };
