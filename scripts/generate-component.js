@@ -108,10 +108,10 @@ const ${camelName}Component: ComponentInfo<Custom${pascalName}Props> = {
 export default ${camelName}Component;
 `;
 
-fs.writeFileSync(path.join(targetDir, \`Custom\${pascalName}.tsx\`), componentContent);
+fs.writeFileSync(path.join(targetDir, `Custom${pascalName}.tsx`), componentContent);
 fs.writeFileSync(path.join(targetDir, 'meta.ts'), metaContent);
 fs.writeFileSync(path.join(targetDir, 'examples.tsx'), examplesContent);
 fs.writeFileSync(path.join(targetDir, 'index.ts'), indexContent);
 
-console.log(\`✅ 성공적으로 생성되었습니다: src/data/components/\${category}/\${kebabName}/\`);
-console.log(\`👉 이제 Custom\${pascalName}.tsx 파일을 열어 멋진 컴포넌트를 만들어보세요!\`);
+console.log(`✅ 성공적으로 생성되었습니다: src/data/components/${category}/${kebabName}/`);
+console.log(`👉 이제 Custom${pascalName}.tsx 파일을 열어 멋진 컴포넌트를 만들어보세요!`);

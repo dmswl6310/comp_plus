@@ -4,6 +4,7 @@ import PageTitle from "@/components/common/PageTitle";
 import ComponentList from "@/components/ComponentList";
 import { componentsData } from "@/data/componentsData";
 import { ComponentCategory } from "@/types/component.types";
+import { useSEO } from "@/hooks/useSEO";
 
 const categories: ComponentCategory[] = ["ui", "blocks", "templates"];
 
@@ -18,6 +19,11 @@ const Components = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] =
     useState<ComponentCategory | null>(null);
+
+  useSEO({
+    title: "컴포넌트 목록",
+    description: "프로젝트에 사용된 모든 UI 컴포넌트를 탐색하고 사용법을 확인하세요.",
+  });
 
   // 모든 컴포넌트에서 고유한 태그 추출
   const availableTags = useMemo(() => {

@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, LayoutTemplate, Zap, Palette } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 const Home = () => {
+  useSEO({
+    title: "Uikki Gallery",
+    description: "UI 컴포넌트를 위한 전용 플레이그라운드입니다. 라이브 프리뷰와 깔끔한 코드 조각으로 React 컴포넌트를 탐색하세요.",
+  });
+
   return (
     <div className="flex flex-col gap-24 py-12 lg:py-24 animate-fade-up">
       <section className="flex flex-col items-center text-center max-w-3xl mx-auto gap-8">

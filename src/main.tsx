@@ -8,6 +8,7 @@ import ComponentDetail from "./components/ComponentDetail";
 import ReactDOM from "react-dom/client";
 import React from "react";
 import { ToastProvider } from "@/components/common/ToastProvider";
+import { ThemeProvider } from "@/components/common/ThemeProvider";
 
 const router = createBrowserRouter([
   {
@@ -23,8 +24,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ToastProvider>
-      <RouterProvider router={router} />
-    </ToastProvider>
+    <ThemeProvider defaultTheme="system" storageKey="uikki-ui-theme">
+      <ToastProvider>
+        <RouterProvider router={router} />
+      </ToastProvider>
+    </ThemeProvider>
   </React.StrictMode>,
 );

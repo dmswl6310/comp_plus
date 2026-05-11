@@ -4,6 +4,7 @@ import { componentsData } from "@/data/componentsData";
 import Examples from "./Examples";
 import CodeTabs from "./common/CodeTabs";
 import PropsTable from "./PropsTable";
+import { useSEO } from "@/hooks/useSEO";
 
 import { renderToStaticMarkup } from "react-dom/server";
 
@@ -38,6 +39,12 @@ const ComponentDetail = () => {
   const { id } = useParams<{ id: string }>();
   const detail = componentsData.find((c) => c.id === id);
   
+  // SEO 메타 태그 동적 변경 (detail이 있을 때만 적용, 없으면 useSEO 훅 내부 로직과 타이밍 이슈 없도록)
+  useSEO({
+    title: detail ? detail.name : "Not Found",
+    description: detail ? detail.description : "컴포넌트를 찾을 수 없습니다.",
+  });
+
   if (!detail) return <Navigate to="/not-found" replace />;
 
   const htmlCode = detail.Component && detail.examples?.length > 0

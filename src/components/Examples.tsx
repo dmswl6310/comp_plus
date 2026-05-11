@@ -6,7 +6,7 @@ type ExamplesProps<T = any> = {
   examples: T[];
 };
 
-const Examples = <T,>({
+const Examples = <T extends Record<string, any>>({
   componentInfo,
   examples,
 }: ExamplesProps<T>) => {
