@@ -3,6 +3,7 @@ import { ChevronLeft } from "lucide-react";
 import { componentsData } from "@/data/componentsData";
 import Examples from "./Examples";
 import CodeTabs from "./common/CodeTabs";
+import PropsTable from "./PropsTable";
 
 import { renderToStaticMarkup } from "react-dom/server";
 
@@ -44,7 +45,7 @@ const ComponentDetail = () => {
     : "";
 
   return (
-    <div className="animate-fade-up max-w-6xl mx-auto">
+    <div className="animate-fade-up max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8">
         <Link 
           to="/components" 
@@ -69,24 +70,52 @@ const ComponentDetail = () => {
         </div>
       </div>
 
+      <div className="mt-8 border-b border-gray-200"></div>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mt-12 mb-20">
-        <div className="lg:col-span-7 space-y-10">
+        <div className="lg:col-span-7 space-y-16">
           <section>
             <div className="flex items-center gap-2 mb-6">
               <div className="h-6 w-1.5 bg-blue-600 rounded-full"></div>
               <h2 className="text-2xl font-bold text-gray-900">미리보기 및 테스트</h2>
             </div>
+            {/* @ts-ignore */}
             <Examples componentInfo={detail} examples={detail.examples} />
           </section>
+
+          {(detail.usage || (detail.propControls && Object.keys(detail.propControls).length > 0)) && (
+            <section id="documentation">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="h-6 w-1.5 bg-indigo-500 rounded-full"></div>
+                <h2 className="text-2xl font-bold text-gray-900">컴포넌트 문서</h2>
+              </div>
+              
+              {detail.usage && (
+                <div className="prose prose-blue max-w-none text-gray-600 mb-10 bg-gray-50/50 p-6 rounded-2xl border border-gray-100">
+                  {detail.usage.split('\n').map((line, i) => (
+                    <p key={i} className="mb-2 last:mb-0 leading-relaxed">{line}</p>
+                  ))}
+                </div>
+              )}
+
+              {detail.propControls && Object.keys(detail.propControls).length > 0 && (
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">Properties (Props)</h3>
+                  {/* @ts-ignore */}
+                  <PropsTable controls={detail.propControls} />
+                </div>
+              )}
+            </section>
+          )}
         </div>
         
         <div className="lg:col-span-5">
-          <section className="sticky top-8 lg:mt-0 mt-8">
+          <section className="sticky top-24 lg:mt-0 mt-8 h-[calc(100vh-8rem)]">
             <div className="flex items-center gap-2 mb-6">
               <div className="h-6 w-1.5 bg-gray-900 rounded-full"></div>
               <h2 className="text-2xl font-bold text-gray-900">소스 코드</h2>
             </div>
-            <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:border-gray-300 transition-colors">
+            <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:border-gray-300 transition-colors h-[calc(100%-3rem)] flex flex-col">
               <CodeTabs code={detail.code} codeJs={detail.codeJs} htmlCode={htmlCode} />
             </div>
           </section>
