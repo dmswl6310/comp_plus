@@ -41,6 +41,12 @@ const Header = () => {
               >
                 컴포넌트 목록
               </Link>
+              <Link 
+                to="/guide" 
+                className={`text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${isActive('/guide') ? 'text-blue-600 dark:text-blue-400' : 'text-gray-600 dark:text-gray-300'}`}
+              >
+                가이드 (도움말)
+              </Link>
             </nav>
             <div className="flex items-center gap-2">
               <button 

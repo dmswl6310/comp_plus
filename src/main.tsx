@@ -5,10 +5,12 @@ import Components from "./pages/Components";
 import "./styles.css";
 import Home from "./pages/Home";
 import ComponentDetail from "./components/ComponentDetail";
+import Guide from "./pages/Guide";
 import ReactDOM from "react-dom/client";
 import React from "react";
 import { ToastProvider } from "@/components/common/ToastProvider";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
+
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
       { path: "", element: <Home /> },
       { path: "components", element: <Components /> },
       { path: "components/:id", element: <ComponentDetail /> },
+      { path: "guide", element: <Guide /> },
     ],
   },
 ]);

@@ -15,6 +15,8 @@ const ComponentCard = ({ info }: { info: ComponentInfo }) => {
           <img
             src={info.image}
             alt={`${info.name}`}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-contain"
           />
         </div>
