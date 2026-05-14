@@ -1,8 +1,12 @@
 import PageTitle from "@/components/common/PageTitle";
 import { useSEO } from "@/hooks/useSEO";
 import { Terminal, Copy, Download, CheckCircle2, SlidersHorizontal, MousePointerClick } from "lucide-react";
+import { useState } from "react";
 
 const Guide = () => {
+  const [mockVariant, setMockVariant] = useState<"default" | "outline">("default");
+  const [mockSize, setMockSize] = useState(50);
+  const [mockDisabled, setMockDisabled] = useState(false);
   useSEO({
     title: "사용 가이드",
     description: "Uikki 컴포넌트를 프로젝트에 설치하고 사용하는 방법을 안내합니다.",
@@ -65,9 +69,19 @@ const Guide = () => {
                 <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
               </div>
-              <div className="mt-4 px-6 py-2.5 bg-blue-600 text-white rounded-lg shadow-lg font-medium text-sm flex items-center gap-2 animate-pulse">
+              <button 
+                disabled={mockDisabled}
+                className={`mt-4 px-6 py-2.5 rounded-lg shadow-lg font-medium text-sm flex items-center gap-2 transition-all duration-300 ${
+                  mockVariant === "default" 
+                    ? "bg-blue-600 text-white hover:bg-blue-700" 
+                    : "bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-50"
+                } ${
+                  mockDisabled ? "opacity-50 cursor-not-allowed grayscale" : "cursor-pointer animate-pulse hover:scale-105"
+                }`}
+                style={{ transform: `scale(${mockSize / 50})` }}
+              >
                 <MousePointerClick size={16} /> Click Me
-              </div>
+              </button>
             </div>
 
             {/* Mockup Right: Props Control */}
@@ -77,21 +91,31 @@ const Guide = () => {
               <div className="flex flex-col gap-1.5">
                 <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Variant</label>
                 <div className="flex bg-slate-100 dark:bg-slate-800 rounded-lg p-1 gap-1">
-                  <div className="flex-1 bg-white dark:bg-slate-600 shadow-sm rounded-md py-1 text-center text-xs font-medium text-slate-800 dark:text-slate-200">Default</div>
-                  <div className="flex-1 rounded-md py-1 text-center text-xs font-medium text-slate-500 dark:text-slate-400">Outline</div>
+                  <button onClick={() => setMockVariant("default")} className={`flex-1 rounded-md py-1 text-center text-xs font-medium transition-colors ${mockVariant === "default" ? "bg-white dark:bg-slate-600 shadow-sm text-slate-800 dark:text-slate-200" : "text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700"}`}>Default</button>
+                  <button onClick={() => setMockVariant("outline")} className={`flex-1 rounded-md py-1 text-center text-xs font-medium transition-colors ${mockVariant === "outline" ? "bg-white dark:bg-slate-600 shadow-sm text-slate-800 dark:text-slate-200" : "text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700"}`}>Outline</button>
                 </div>
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Size</label>
-                <input type="range" className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer" defaultValue="50" />
+                <div className="flex justify-between items-center">
+                  <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Size</label>
+                  <span className="text-[10px] text-slate-400">{mockSize}px</span>
+                </div>
+                <input 
+                  type="range" min="30" max="80" 
+                  value={mockSize} onChange={(e) => setMockSize(Number(e.target.value))}
+                  className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-600" 
+                />
               </div>
 
               <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                 <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Disabled</label>
-                <div className="w-8 h-4 bg-slate-300 dark:bg-slate-700 rounded-full relative">
-                  <div className="w-3 h-3 bg-white rounded-full absolute left-0.5 top-0.5"></div>
-                </div>
+                <button 
+                  onClick={() => setMockDisabled(!mockDisabled)}
+                  className={`w-8 h-4 rounded-full relative transition-colors ${mockDisabled ? "bg-blue-500" : "bg-slate-300 dark:bg-slate-700"}`}
+                >
+                  <div className={`w-3 h-3 bg-white rounded-full absolute top-0.5 transition-all shadow-sm ${mockDisabled ? "left-4.5" : "left-0.5"}`} style={{ left: mockDisabled ? '1.125rem' : '0.125rem' }}></div>
+                </button>
               </div>
             </div>
           </div>
