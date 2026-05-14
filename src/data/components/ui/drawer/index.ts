@@ -9,6 +9,7 @@ const drawerComponent: ComponentInfo<CustomDrawerProps> = {
   id: "drawer",
   Component: CustomDrawer,
   ...drawerMeta,
+  updatedAt: new Date("2026-05-14"),
   code,
   codeJs,
   examples: drawerExamples,

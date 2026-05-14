@@ -7,7 +7,7 @@ export const tooltipMeta = {
   aliases: ["툴팁", "말풍선", "힌트"],
   propControls: {
     content: {
-      type: "text",
+      type: "string",
       label: "툴팁 내용",
     },
     position: {

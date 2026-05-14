@@ -100,6 +100,7 @@ const ${camelName}Component: ComponentInfo<Custom${pascalName}Props> = {
   id: "${kebabName}",
   Component: Custom${pascalName},
   ...${camelName}Meta,
+  updatedAt: new Date(),
   code,
   codeJs,
   examples: ${camelName}Examples,

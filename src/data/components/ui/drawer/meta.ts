@@ -12,7 +12,7 @@ export const drawerMeta = {
       label: "열리는 방향",
     },
     title: {
-      type: "text",
+      type: "string",
       label: "패널 제목",
     },
   } as Record<string, PropControl>,
