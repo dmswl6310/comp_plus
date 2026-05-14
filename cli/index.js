@@ -34,7 +34,7 @@ const pascalName = toPascalCase(componentName);
 const fileName = `Custom${pascalName}.tsx`;
 
 // GitHub Raw URL (dev branch)
-const repoUrl = `https://raw.githubusercontent.com/dmswl6310/comp_plus/dev/src/data/components/${category}/${componentName}/${fileName}`;
+const repoUrl = `https://raw.githubusercontent.com/dmswl6310/Uikki-uikki/dev/src/data/components/${category}/${componentName}/${fileName}`;
 
 const targetDir = path.join(process.cwd(), 'src', 'components', category);
 const targetPath = path.join(targetDir, `${pascalName}.tsx`);
