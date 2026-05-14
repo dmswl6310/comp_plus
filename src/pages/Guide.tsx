@@ -34,7 +34,7 @@ const Guide = () => {
             <div className="flex items-center gap-3 text-gray-300 font-mono text-sm sm:text-base">
               <Terminal size={18} className="text-gray-500" />
               <span>
-                <span className="text-blue-400">npx</span> uikki add <span className="text-emerald-400">ui/button</span>
+                <span className="text-blue-400">npx</span> uikki add <span className="text-emerald-400">button</span>
               </span>
             </div>
           </div>

@@ -15,13 +15,18 @@ if (args.length === 0 || args[0] !== 'add') {
   process.exit(1);
 }
 
-const componentPath = args[1]; // e.g., ui/button
-if (!componentPath || !componentPath.includes('/')) {
-  console.error("❌ 잘못된 형식입니다. '카테고리/이름' 형식으로 입력해주세요. (예: ui/button)");
+const rawPath = args[1]; // e.g., button or ui/button
+if (!rawPath) {
+  console.error("❌ 컴포넌트 이름을 입력해주세요. (예: npx uikki add button)");
   process.exit(1);
 }
 
-const [category, componentName] = componentPath.split('/');
+let category = 'ui';
+let componentName = rawPath;
+
+if (rawPath.includes('/')) {
+  [category, componentName] = rawPath.split('/');
+}
 
 // Convert kebab-case to PascalCase
 const toPascalCase = (str) =>
