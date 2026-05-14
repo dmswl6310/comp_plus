@@ -47,8 +47,6 @@ const Guide = () => {
           </div>
         </section>
 
-        </section>
-
         {/* Section 2: Live Playground */}
         <section className="flex flex-col gap-4">
           <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400">
