@@ -1,6 +1,6 @@
 import PageTitle from "@/components/common/PageTitle";
 import { useSEO } from "@/hooks/useSEO";
-import { Terminal, Copy, Download, CheckCircle2 } from "lucide-react";
+import { Terminal, Copy, Download, CheckCircle2, SlidersHorizontal, MousePointerClick } from "lucide-react";
 
 const Guide = () => {
   useSEO({
@@ -47,11 +47,63 @@ const Guide = () => {
           </div>
         </section>
 
-        {/* Section 2: Manual Copy */}
+        </section>
+
+        {/* Section 2: Live Playground */}
+        <section className="flex flex-col gap-4">
+          <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400">
+            <SlidersHorizontal size={24} />
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-slate-100">2. 라이브 플레이그라운드 (실시간 테스트)</h2>
+          </div>
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            컴포넌트를 적용하기 전에 내 프로젝트에 맞는지 미리 확인해보세요. 우측의 <strong>Props 패널</strong>을 조작하면 화면의 컴포넌트가 실시간으로 변합니다!
+          </p>
+
+          <div className="mt-2 flex flex-col md:flex-row gap-4 bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-800">
+            {/* Mockup Left: Component View */}
+            <div className="flex-1 bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-8 flex flex-col items-center justify-center relative overflow-hidden group">
+              <div className="absolute top-3 left-3 flex gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+              </div>
+              <div className="mt-4 px-6 py-2.5 bg-blue-600 text-white rounded-lg shadow-lg font-medium text-sm flex items-center gap-2 animate-pulse">
+                <MousePointerClick size={16} /> Click Me
+              </div>
+            </div>
+
+            {/* Mockup Right: Props Control */}
+            <div className="w-full md:w-64 bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-5 flex flex-col gap-4">
+              <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200 mb-2 border-b border-slate-100 dark:border-slate-800 pb-2">Props Control</h4>
+              
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Variant</label>
+                <div className="flex bg-slate-100 dark:bg-slate-800 rounded-lg p-1 gap-1">
+                  <div className="flex-1 bg-white dark:bg-slate-600 shadow-sm rounded-md py-1 text-center text-xs font-medium text-slate-800 dark:text-slate-200">Default</div>
+                  <div className="flex-1 rounded-md py-1 text-center text-xs font-medium text-slate-500 dark:text-slate-400">Outline</div>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Size</label>
+                <input type="range" className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer" defaultValue="50" />
+              </div>
+
+              <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Disabled</label>
+                <div className="w-8 h-4 bg-slate-300 dark:bg-slate-700 rounded-full relative">
+                  <div className="w-3 h-3 bg-white rounded-full absolute left-0.5 top-0.5"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3: Manual Copy */}
         <section className="flex flex-col gap-4">
           <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400">
             <Copy size={24} />
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-slate-100">2. 직접 복사해서 사용하기</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-slate-100">3. 직접 복사해서 사용하기</h2>
           </div>
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
             CLI를 쓰고 싶지 않거나, 특정 로직만 조금 참고하고 싶다면 화면에서 직접 코드를 복사하셔도 됩니다.
@@ -62,7 +114,7 @@ const Guide = () => {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 dark:bg-slate-800 mb-4 text-gray-600 dark:text-gray-300 font-bold">1</div>
               <h3 className="font-semibold text-gray-900 dark:text-slate-100 mb-2">컴포넌트 탐색 및 테스트</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                원하는 컴포넌트를 찾아 클릭합니다. 놀이터(Playground) 화면에서 Props 옵션을 이것저것 바꿔보며 내 입맛에 맞는지 테스트합니다.
+                원하는 컴포넌트를 찾아 클릭합니다. 놀이터(Playground) 화면에서 실시간으로 테스트를 마쳤다면, 내 입맛에 맞는 속성(Props)이 무엇인지 확인합니다.
               </p>
             </div>
             <div className="border border-gray-200 dark:border-slate-800 rounded-xl p-5 bg-white dark:bg-slate-900 shadow-sm">
