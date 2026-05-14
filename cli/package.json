@@ -1,5 +1,5 @@
 {
-  "name": "uikki-cli",
+  "name": "uikki",
   "version": "1.0.0",
   "description": "CLI tool for Uikki UI Component Gallery",
   "bin": {
