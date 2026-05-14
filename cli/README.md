@@ -26,6 +26,32 @@ npx uikki add drawer
 
 The CLI will automatically download the component from the Uikki GitHub repository and save it to your `src/components/ui/` folder.
 
+## 🎮 Live Demo & Component Playground
+
+You don't need to install anything to see what Uikki can do! 
+Visit our live gallery to test components, tweak their props in real-time, and copy the code:
+
+👉 **[Live Demo & Playground](https://comp-plus-seven.vercel.app)** 👈
+
+## 📦 Available Components
+
+Currently, the following components are available to fetch via CLI. You can see how each of them looks and behaves on our live website.
+
+- `accordion`
+- `avatar`
+- `badge`
+- `button`
+- `card`
+- `drawer`
+- `input`
+- `list`
+- `modal`
+- `progress`
+- `tabs`
+- `toast`
+- `toggle`
+- `tooltip`
+
 ## 🎨 Features
 
 - **Zero-dependency:** Animations and logic are built using pure React state and Tailwind CSS. No Framer Motion, no heavy dependencies!
@@ -34,5 +60,4 @@ The CLI will automatically download the component from the Uikki GitHub reposito
 
 ## 🔗 Links
 
-- **Component Gallery & Playground:** [Uikki✦Uikki Website](https://comp-plus-seven.vercel.app)
 - **GitHub Repository:** [dmswl6310/Uikki-uikki](https://github.com/dmswl6310/Uikki-uikki)
