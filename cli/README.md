@@ -13,13 +13,13 @@ You get total control over the code, allowing you to customize it exactly how yo
 Run the following command in your React/Tailwind project to add a component:
 
 ```bash
-npx uikki add <component-name>
+npx -y uikki add <component-name>
 ```
 
 **Example:**
 ```bash
-npx uikki add button
-npx uikki add drawer
+npx -y uikki add button
+npx -y uikki add drawer
 ```
 
 The CLI will automatically download the component from the Uikki GitHub repository and save it to your `src/components/ui/` folder.

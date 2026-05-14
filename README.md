@@ -17,9 +17,9 @@
 Uikki가 제공하는 꿀기능! 터미널에서 아래 명령어 한 줄만 치면 깃허브에서 컴포넌트 코드를 실시간으로 다운받아 내 프로젝트의 `src/components/...` 폴더에 자동으로 만들어 줍니다.
 
 ```bash
-# npx uikki add <컴포넌트명>
-npx uikki add button
-npx uikki add drawer
+# npx -y uikki add <컴포넌트명>
+npx -y uikki add button
+npx -y uikki add drawer
 ```
 
 > **지원하는 컴포넌트 목록:** `button`, `input`, `card`, `avatar`, `badge`, `list`, `modal`, `toast`, `progress`, `toggle`, `accordion`, `tooltip`, `drawer`, `tabs`

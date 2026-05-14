@@ -79,19 +79,7 @@ https.get(repoUrl, (res) => {
     fs.writeFileSync(targetPath, cleanedCode);
 
     console.log(`✅ 성공적으로 추가되었습니다: ${targetPath}`);
-    
-    // Check for common dependencies (heuristics)
-    const deps = [];
-    if (cleanedCode.includes('lucide-react')) deps.push('lucide-react');
-    if (cleanedCode.includes('framer-motion')) deps.push('framer-motion');
-    if (cleanedCode.includes('clsx') || cleanedCode.includes('tailwind-merge')) deps.push('clsx tailwind-merge');
-
-    if (deps.length > 0) {
-      console.log(`\n📦 추가 설치가 필요한 패키지가 발견되었습니다:`);
-      console.log(`npm install ${deps.join(' ')}`);
-    } else {
-      console.log(`\n🎉 추가 설치가 필요한 의존성이 없습니다. 바로 사용하세요!`);
-    }
+    console.log(`🎉 바로 사용하세요!`);
   });
 }).on('error', (err) => {
   console.error(`❌ 에러 발생: ${err.message}`);
