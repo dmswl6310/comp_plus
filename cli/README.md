@@ -1,8 +1,6 @@
 # Uikki✦Uikki CLI 🐒
 
-The official CLI tool for **[Uikki✦Uikki](https://comp-plus-seven.vercel.app)**, a Zero-dependency React UI Component Gallery.
-
-*(Note: Please replace the Vercel URL above with your actual live URL if it is different)*
+The official CLI tool for **[Uikki✦Uikki](https://uikki.vercel.app)**, a Zero-dependency React UI Component Gallery.
 
 ## 🚀 What is Uikki?
 
@@ -31,7 +29,7 @@ The CLI will automatically download the component from the Uikki GitHub reposito
 You don't need to install anything to see what Uikki can do! 
 Visit our live gallery to test components, tweak their props in real-time, and copy the code:
 
-👉 **[Live Demo & Playground](https://comp-plus-seven.vercel.app)** 👈
+👉 **[Live Demo & Playground](https://uikki.vercel.app)** 👈
 
 ## 📦 Available Components
 
